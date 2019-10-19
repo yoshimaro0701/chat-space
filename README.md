@@ -9,7 +9,9 @@
 |email|string|null: false, unique: true|
 
 ### Association
-belongs_to :groups, through: :groups_usersテーブル
+- has_many :groups, through: :groups_users
+- has_many :groups_users
+
 
 ## groupsテーブル
 
@@ -17,11 +19,11 @@ belongs_to :groups, through: :groups_usersテーブル
 |------|----|------|
 |group_id|integer|null: false, primary_key: true|
 |group_name|string|null: false|
-|body|text|null: false|
-|image|string|null: true|
 
 ### Association
-has_many :users, through: :groups_usersテーブル
+- has_many :users, through: :groups_users
+- has_many :groups_users
+
 
 ## groups_usersテーブル
 
@@ -32,4 +34,17 @@ has_many :users, through: :groups_usersテーブル
 
 ### Association
 - belongs_to :group
+- belongs_to :user
+
+
+## Messageテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|body|text|null: false|
+|image|string|null: true|
+|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
 - belongs_to :user
