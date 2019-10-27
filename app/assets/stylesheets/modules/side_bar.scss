@@ -1,5 +1,4 @@
 .side-bar {
-  box-sizing: border-box;
   width: 300px;
   color: white;
 
@@ -37,7 +36,6 @@
     padding: 0 20px;
 
     .group {
-      box-sizing: border-box;
       padding: 20px 0 40px;
 
       &__name {

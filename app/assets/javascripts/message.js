@@ -19,6 +19,10 @@ $(function(){
       return html;
   }
 
+  function scroll() {
+    $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight});
+    }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -36,13 +40,11 @@ $(function(){
       $('.messages').append(html);
       $('.form__message').val('');
       $('.form__submit').prop('disabled', false);
+      scroll()
     })
     .fail(function(data){
       alert('メッセージが送信できません');
       $('.form__submit').prop('disabled', false);
     })
   })
-
-  $('.messages').animate({scrollTop: $('.message')[0].scrollHeight});
-
 });
