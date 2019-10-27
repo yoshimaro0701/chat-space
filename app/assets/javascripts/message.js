@@ -33,11 +33,14 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.messages').append(html)
-      $('.form__message').val('')
+      $('.messages').append(html);
+      $('.form__message').val('');
+    })
+    .fail(function(data){
+      alert('メッセージが送信できません');
     })
   })
 
   $('.messages').animate({scrollTop: $('.message')[0].scrollHeight});
-  
+
 });
