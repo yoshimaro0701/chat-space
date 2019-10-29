@@ -1,5 +1,7 @@
 $(function(){
 
+  var latest_id = 0;
+
   function buildHTML(message){
     var img = message.image ? `<img src= ${ message.image }>` : "";
     var html = `<div class="message">
@@ -42,6 +44,7 @@ $(function(){
       $('.messages').append(html);
       $(".new_message")[0].reset();
       scroll()
+      latest_id = data.id;
     })
     .fail(function(data){
       alert('メッセージが送信できません');
