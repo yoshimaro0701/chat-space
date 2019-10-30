@@ -1,4 +1,6 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
+
+  $(function(){
 
   function addUser(user){
     
@@ -43,7 +45,7 @@ $(function(){
       type: "GET",
       url: '/users',
       dataType: 'json',
-      data: ('keyword=' + input),
+      data: {keyword: input},
     })
     .done(function(users){
 
@@ -52,8 +54,7 @@ $(function(){
       }
         else if (input.length !== 0){
         $('#user-search-result').empty();
-
-          users.forEach(function(user){
+        users.forEach(function(user){
             addUser(user);
           });
         }
@@ -78,5 +79,6 @@ $(function(){
   $(document).on("click", ".chat-group-user-remove", function(){
     $(this).parent().remove();
   });
+});
 });
 
