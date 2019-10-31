@@ -28,7 +28,7 @@ $(document).on('turbolinks:load', function(){
     var html = `
                 <div class="chat-group-user clearfix" id="${id}">
                   <p class="chat-group-user__name">${name}</p>
-                  <div class="chat-group-user-remove chat-group-user__btn" data-user-id=${id} data-user-name=${name}>削除</div>
+                  <div class="user-search-remove chat-group-user__btn" data-user-id=${id} data-user-name=${name}>削除</div>
                 </div>`;
               $(".js-add-user").append(html);
   };
@@ -68,7 +68,7 @@ $(document).on('turbolinks:load', function(){
     });
   });
 
-  $(document).on("click", ".user-search-add", function(){
+  $("#user-search-result").on("click", ".user-search-add", function(){
     const userName = $(this).attr("data-user-name");
     const userId = $(this).attr("data-user-id");
     $(this).parent().remove();
@@ -76,7 +76,7 @@ $(document).on('turbolinks:load', function(){
     addMember(userId);
   });
 
-  $(document).on("click", ".chat-group-user-remove", function(){
+  $(document).on("click", ".user-search-remove", function(){
     $(this).parent().remove();
   });
 });
